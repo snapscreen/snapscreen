@@ -1,6 +1,7 @@
 const POST_GRAPHQL_FIELDS = `
 slug
 title
+shortText
 publishDate
 `
 
@@ -22,8 +23,39 @@ async function fetchGraphQL(query, preview = false) {
   ).then((response) => response.json())
 }
 
+function extractPost(fetchResponse) {
+  return fetchResponse?.data?.pressArticleCollection?.items?.[0]
+}
+
 function extractPostEntries(fetchResponse) {
   return fetchResponse?.data?.pressArticleCollection?.items
+}
+
+export async function getPreviewPostBySlug(slug) {
+  const entry = await fetchGraphQL(
+    `query {
+      pressArticleCollection(where: { slug: "${slug}" }, preview: true, limit: 1) {
+        items {
+          ${POST_GRAPHQL_FIELDS}
+        }
+      }
+    }`,
+    true
+  )
+  return extractPost(entry)
+}
+
+export async function getAllPostsWithSlug() {
+  const entries = await fetchGraphQL(
+    `query {
+      pressArticleCollection(where: { slug_exists: true }, order: date_DESC) {
+        items {
+          ${POST_GRAPHQL_FIELDS}
+        }
+      }
+    }`
+  )
+  return extractPostEntries(entries)
 }
 
 export async function getAllPostsForNewsroom(preview) {
@@ -38,4 +70,35 @@ export async function getAllPostsForNewsroom(preview) {
     preview
   )
   return extractPostEntries(entries)
+}
+
+export async function getPostAndMorePosts(slug, preview) {
+  const entry = await fetchGraphQL(
+    `query {
+      pressArticleCollection(where: { slug: "${slug}" }, preview: ${
+      preview ? 'true' : 'false'
+    }, limit: 1) {
+        items {
+          ${POST_GRAPHQL_FIELDS}
+        }
+      }
+    }`,
+    preview
+  )
+  const entries = await fetchGraphQL(
+    `query {
+      pressArticleCollection(where: { slug_not_in: "${slug}" }, order: date_DESC, preview: ${
+      preview ? 'true' : 'false'
+    }, limit: 2) {
+        items {
+          ${POST_GRAPHQL_FIELDS}
+        }
+      }
+    }`,
+    preview
+  )
+  return {
+    post: extractPost(entry),
+    morePosts: extractPostEntries(entries),
+  }
 }
