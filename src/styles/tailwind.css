@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#__next {
+  min-height: 100%;
+}
+
+.rhap_main-controls-button {
+  @apply !text-blue-600;
+}
+
+.rhap_horizontal-reverse .rhap_controls-section {
+  @apply !m-0;
+}
