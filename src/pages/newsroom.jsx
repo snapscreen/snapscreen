@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Image from 'next/image'
 import { getAllPressCoverage, getAllPressArticles } from '../lib/api'
 import { Container } from '@/components/Container'
 import { CallToAction } from '@/components/CallToAction'
@@ -12,7 +13,6 @@ import { BLOCKS } from "@contentful/rich-text-types";
 
 const renderDocument = document => {
   const Text = ({ children }) => <p>{children}</p>;
-
   const options = {
     renderNode: {
       [BLOCKS.PARAGRAPH]: (node, children) => <Text>{children}</Text>
@@ -20,7 +20,6 @@ const renderDocument = document => {
     renderText: text =>
       text.split("\n").flatMap((text, i) => [i > 0 && <br />, text])
   }
-
   return documentToReactComponents(document, options);
 }
 
@@ -42,53 +41,113 @@ export default function Newsroom({ allCoverage, allArticles }) {
         />
       </Head>
       <Header />
-      <main className="pt-24">
+      <main className="pt-24 bg-zinc-100">
         <Container className="pt-20 pb-16 text-center lg:pt-32">
           <h1 className="mx-auto max-w-6xl font-display text-4xl font-medium tracking-tighter leading-tight text-slate-900 sm:text-6xl">
-            Newsroom
+            Newsroom and Press resources
           </h1>
-          <p className="mx-auto mt-10 max-w-2xl text-lg lg:text-xl tracking-tight text-slate-700">
-            Based in New York with offices in Austria and Australia, Snapscreen is a technology company focused on the use of mobile devices and image recognition for broadcast TV and streaming in the world of sports and entertainment.
-          </p>
         </Container>
-        <Container className="pt-20 pb-16 lg:pt-32">
-          <div className="mt-16 grid lg:grid-cols-2 gap-16">
-            <section className="w-full">
-              <h3 className="mb-6 font-display text-4xl">Press Releases</h3>
-              <ol className="flex flex-col gap-8">
-                {allArticles && allArticles.map((post, id) => (
-                  <li key={id} className="">
-                    <div className="font-display text-2xl font-bold leading-snug mb-2">
-                      {post.title}
+        <section>
+          <Container className="py-16">
+            <div className="mt-16 grid md:grid-cols-2 gap-8">
+              <div className="flex-1">
+                <h2 className="font-display text-3xl tracking-tight sm:text-4xl">
+                  About Snapscreen
+                </h2>
+                <p className="my-4 text-lg lg:text-xl tracking-tight text-slate-700">
+                  Based in New York with offices in Austria and Australia, Snapscreen is a technology company focused on the use of mobile devices and image recognition for broadcast TV and streaming in the world of sports and entertainment.
+                </p>
+              </div>
+              <div className="flex-1 bg-white shadow rounded-lg p-8 -mt-8">
+                <h2 className="font-display text-3xl tracking-tight sm:text-4xl">
+                  Get in touch
+                </h2>
+                <dl className="my-4 text-lg lg:text-xl tracking-tight text-slate-700">
+                  <div className="flex gap-2">
+                    <dt>Email:</dt>
+                    <dd>hello@snapscreen.com</dd>
+                  </div>
+                  <div className="flex gap-2">
+                    <dt>LinkedIn:</dt>
+                    <dd>@Snapscreen</dd>
+                  </div>
+                  <div className="flex gap-2">
+                    <dt>Twitter:</dt>
+                    <dd>@Snapscreen_com</dd>
+                  </div>
+                  <div className="flex gap-2">
+                    <dt>Github:</dt>
+                    <dd>snapscreen</dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+          </Container>
+        </section>
+        <section
+          id="releases"
+          aria-label="Press Releases"
+          className="bg-slate-900 py-20 sm:py-32 text-white"
+        >
+          <Container className="py-8">
+            <div className="md:text-center">
+              <h2 className="font-display text-3xl tracking-tight text-white sm:text-4xl">
+                Press Releases
+              </h2>
+              <p className="mt-4 text-lg text-slate-400">
+                Find here updates of our products and Snapscreen corporate news.
+              </p>
+            </div>
+            <ol className="mt-16 grid md:grid-cols-2 gap-8">
+              {allArticles && allArticles.map((post, id) => (
+                <li key={id} className="">
+                  <div className="font-display text-2xl font-bold leading-snug mt-4 mb-2">
+                    {post.title}
+                  </div>
+                  <Date dateString={post.publishDate} />
+                  {/*
+                  <div className={markdownStyles['markdown']}>
+                    <RichText document={post.longText.json} />
+                  </div>
+                  */}
+                </li>
+              ))}
+            </ol>
+          </Container>
+        </section>
+        <section>
+          <Container className="pt-20 pb-16 lg:pt-16">
+            <h2 className="font-display text-3xl tracking-tight mb-6 sm:text-4xl">
+              Press Mentions
+            </h2>
+            <ol className="md:columns-2 gap-8 space-y-8">
+              {allCoverage && allCoverage.map((post, id) => (
+                <li key={id} className="">
+                  <a
+                    href={post.link}
+                    className="flex flex-col md:flex-row gap-4 bg-white shadow p-8 rounded-lg"
+                  >
+                    <div className="block">
+                      <div className="text-xl leading-snug">
+                        {post.title}
+                      </div>
+                      <span className="block break-all text-sm mt-2">{post.link}</span>
                     </div>
-                    <Date dateString={post.publishDate} />
-                    <div className={markdownStyles['markdown']}>
-                      <RichText document={post.longText.json} />
+                    <div className="w-20 flex-none">
+                      <Image
+                        width={80}
+                        height={80}
+                        src={post.image.url}
+                        alt={post.title}
+                        className="object-contain"
+                      />
                     </div>
-                  </li>
-                ))}
-              </ol>
-            </section>
-            <section>
-              <h3 className="mb-6 font-display text-4xl">Press Mentions</h3>
-              <ol className="space-y-4">
-                {allCoverage && allCoverage.map((post, id) => (
-                  <li key={id} className="">
-                    <div className="text-xl leading-snug">
-                      {post.title}
-                    </div>
-                    <a
-                      href={post.link}
-                      className="text-blue-600 text-sm underline-offset-4 decoration-1 hover:underline"
-                    >
-                      {post.link}
-                    </a>
-                  </li>
-                ))}
-              </ol>
-            </section>
-          </div>
-        </Container>
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </Container>
+        </section>
         <CallToAction />
       </main>
       <Footer />

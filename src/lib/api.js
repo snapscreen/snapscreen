@@ -27,6 +27,9 @@ export async function getAllPressCoverage() {
         items {
           title
           link
+          image {
+            url
+          }
         }
       }
     }`
