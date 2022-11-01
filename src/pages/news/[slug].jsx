@@ -17,32 +17,33 @@ export default function Post({ post, morePosts }) {
   }
 
   return (
-    <Container>
-      <Header />
-      {router.isFallback ? (
-        <PostTitle>Loading…</PostTitle>
-      ) : (
-        <>
-          <article>
-            <Head>
-              <title>
-                {post.title} | Snapscreen
-              </title>
-            </Head>
-            <PostHeader
-              title={post.title}
-              coverImage={post.coverImage}
-              date={post.date}
-              author={post.author}
-            />
-            <PostBody content={post.content} />
-          </article>
-          {morePosts && morePosts.length > 0 && (
-            <PostsList posts={morePosts} />
-          )}
-        </>
-      )}
-    </Container>
+    <>
+    <Header />
+    <main className="pt-24">
+      <Container>
+        {router.isFallback ? (
+          <PostTitle>Loading…</PostTitle>
+        ) : (
+          <>
+            <article>
+              <Head>
+                <title>
+                  {post.title} | Snapscreen
+                </title>
+              </Head>
+              <PostHeader
+                title={post.title}
+                date={post.publishDate}
+              />
+            </article>
+            {morePosts && morePosts.length > 0 && (
+              <PostsList posts={morePosts} />
+            )}
+          </>
+        )}
+      </Container>
+    </main>
+    </>
   )
 }
 
@@ -61,7 +62,7 @@ export async function getStaticProps({ params, preview = false }) {
 export async function getStaticPaths() {
   const allPosts = await getAllPostsWithSlug()
   return {
-    paths: allPosts?.map(({ slug }) => `/posts/${slug}`) ?? [],
+    paths: allPosts?.map(({ slug }) => `/news/${slug}`) ?? [],
     fallback: true,
   }
 }

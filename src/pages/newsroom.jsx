@@ -1,13 +1,36 @@
 import Head from 'next/head'
-
+import { getAllPressCoverage, getAllPressArticles } from '../lib/api'
 import { Container } from '@/components/Container'
 import { CallToAction } from '@/components/CallToAction'
+import { Date } from '@/components/Date'
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
-import { PostsList } from '@/components/PostsList'
-import { getAllPostsForNewsroom } from '@/lib/api'
+import markdownStyles from '@/components/markdown-styles.module.css'
 
-export default function Newsroom({ allPosts }) {
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { BLOCKS } from "@contentful/rich-text-types";
+
+const renderDocument = document => {
+  const Text = ({ children }) => <p>{children}</p>;
+
+  const options = {
+    renderNode: {
+      [BLOCKS.PARAGRAPH]: (node, children) => <Text>{children}</Text>
+    },
+    renderText: text =>
+      text.split("\n").flatMap((text, i) => [i > 0 && <br />, text])
+  }
+
+  return documentToReactComponents(document, options);
+}
+
+const RichText = ({ document }) => (
+  <div>
+    {renderDocument(document)}
+  </div>
+)
+
+export default function Newsroom({ allCoverage, allArticles }) {
 
   return (
     <>
@@ -28,7 +51,44 @@ export default function Newsroom({ allPosts }) {
             Based in New York with offices in Austria and Australia, Snapscreen is a technology company focused on the use of mobile devices and image recognition for broadcast TV and streaming in the world of sports and entertainment.
           </p>
         </Container>
-        <PostsList posts={allPosts} />
+        <Container className="pt-20 pb-16 lg:pt-32">
+          <div className="mt-16 grid lg:grid-cols-2 gap-16">
+            <section className="w-full">
+              <h3 className="mb-6 font-display text-4xl">Press Releases</h3>
+              <ol className="flex flex-col gap-8">
+                {allArticles && allArticles.map((post, id) => (
+                  <li key={id} className="">
+                    <div className="font-display text-2xl font-bold leading-snug mb-2">
+                      {post.title}
+                    </div>
+                    <Date dateString={post.publishDate} />
+                    <div className={markdownStyles['markdown']}>
+                      <RichText document={post.longText.json} />
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </section>
+            <section>
+              <h3 className="mb-6 font-display text-4xl">Press Mentions</h3>
+              <ol className="space-y-4">
+                {allCoverage && allCoverage.map((post, id) => (
+                  <li key={id} className="">
+                    <div className="text-xl leading-snug">
+                      {post.title}
+                    </div>
+                    <a
+                      href={post.link}
+                      className="text-blue-600 text-sm underline-offset-4 decoration-1 hover:underline"
+                    >
+                      {post.link}
+                    </a>
+                  </li>
+                ))}
+              </ol>
+            </section>
+          </div>
+        </Container>
         <CallToAction />
       </main>
       <Footer />
@@ -36,9 +96,13 @@ export default function Newsroom({ allPosts }) {
   )
 }
 
-export async function getStaticProps({ preview = false }) {
-  const allPosts = (await getAllPostsForNewsroom(preview)) ?? []
+export async function getStaticProps() {
+  const allCoverage = (await getAllPressCoverage()) ?? []
+  const allArticles = (await getAllPressArticles()) ?? []
   return {
-    props: { preview, allPosts },
+    props: {
+      allCoverage,
+      allArticles
+    },
   }
 }

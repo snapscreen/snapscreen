@@ -1,0 +1,41 @@
+.markdown {
+  @apply text-lg leading-relaxed;
+}
+
+.markdown p,
+.markdown ul,
+.markdown ol,
+.markdown blockquote {
+  @apply my-4;
+}
+
+.markdown ul,
+.markdown ol {
+  @apply list-disc;
+  @apply ml-4;
+}
+
+.markdown ol {
+  @apply list-decimal;
+}
+
+.markdown li {
+  @apply my-2;
+}
+
+.markdown li p {
+  @apply my-0;
+}
+
+.markdown h2 {
+  @apply text-xl font-semibold mt-6 mb-3 leading-snug;
+}
+
+.markdown h3 {
+  @apply text-lg font-semibold mt-4 mb-2 leading-snug;
+}
+
+.markdown a {
+  @apply break-all;
+  @apply underline underline-offset-4 decoration-1;
+}

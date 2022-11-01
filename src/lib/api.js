@@ -1,104 +1,53 @@
-const POST_GRAPHQL_FIELDS = `
-slug
-title
-shortText
-publishDate
-`
-
-async function fetchGraphQL(query, preview = false) {
+async function fetchGraphQL(query) {
   return fetch(
     `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}`,
     {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${
-          preview
-            ? process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN
-            : process.env.CONTENTFUL_ACCESS_TOKEN
-        }`,
+        Authorization: `Bearer ${process.env.CONTENTFUL_ACCESS_TOKEN}`,
       },
       body: JSON.stringify({ query }),
     }
   ).then((response) => response.json())
 }
 
-function extractPost(fetchResponse) {
-  return fetchResponse?.data?.pressArticleCollection?.items?.[0]
+function extractCoverageEntries(fetchResponse) {
+  return fetchResponse?.data?.pressCoverageCollection?.items
 }
 
-function extractPostEntries(fetchResponse) {
+function extractArticleEntries(fetchResponse) {
   return fetchResponse?.data?.pressArticleCollection?.items
 }
 
-export async function getPreviewPostBySlug(slug) {
-  const entry = await fetchGraphQL(
-    `query {
-      pressArticleCollection(where: { slug: "${slug}" }, preview: true, limit: 1) {
-        items {
-          ${POST_GRAPHQL_FIELDS}
-        }
-      }
-    }`,
-    true
-  )
-  return extractPost(entry)
-}
-
-export async function getAllPostsWithSlug() {
+export async function getAllPressCoverage() {
   const entries = await fetchGraphQL(
     `query {
-      pressArticleCollection(where: { slug_exists: true }, order: date_DESC) {
+      pressCoverageCollection {
         items {
-          ${POST_GRAPHQL_FIELDS}
+          title
+          link
         }
       }
     }`
   )
-  return extractPostEntries(entries)
+  return extractCoverageEntries(entries)
 }
 
-export async function getAllPostsForNewsroom(preview) {
+export async function getAllPressArticles() {
   const entries = await fetchGraphQL(
     `query {
-      pressArticleCollection(order: date_DESC, preview: ${preview ? 'true' : 'false'}) {
+      pressArticleCollection {
         items {
-          ${POST_GRAPHQL_FIELDS}
+          title
+          publishDate
+          shortText
+          longText {
+            json
+          }
         }
       }
-    }`,
-    preview
+    }`
   )
-  return extractPostEntries(entries)
-}
-
-export async function getPostAndMorePosts(slug, preview) {
-  const entry = await fetchGraphQL(
-    `query {
-      pressArticleCollection(where: { slug: "${slug}" }, preview: ${
-      preview ? 'true' : 'false'
-    }, limit: 1) {
-        items {
-          ${POST_GRAPHQL_FIELDS}
-        }
-      }
-    }`,
-    preview
-  )
-  const entries = await fetchGraphQL(
-    `query {
-      pressArticleCollection(where: { slug_not_in: "${slug}" }, order: date_DESC, preview: ${
-      preview ? 'true' : 'false'
-    }, limit: 2) {
-        items {
-          ${POST_GRAPHQL_FIELDS}
-        }
-      }
-    }`,
-    preview
-  )
-  return {
-    post: extractPost(entry),
-    morePosts: extractPostEntries(entries),
-  }
+  return extractArticleEntries(entries)
 }
