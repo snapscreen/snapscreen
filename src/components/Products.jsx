@@ -63,11 +63,10 @@ export function Products() {
       <Container>
         <div className="md:text-center">
           <h2 className="font-display text-3xl tracking-tight text-white sm:text-4xl">
-            Products
+            Our Products
           </h2>
           <p className="mt-4 text-lg text-slate-400">
-            It doesn’t matter what size your business is, our software won’t
-            work well for you.
+            Our products are turnkey solutions for sports media and sports betting operators.
           </p>
         </div>
         <div className="mt-16 grid max-w-2xl grid-cols-1 gap-16 sm:mx-auto lg:max-w-none lg:grid-cols-2">

@@ -7,6 +7,8 @@ import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { Logo } from '@/components/Logo'
 import { NavLink } from '@/components/NavLink'
+import { MEETING_URL } from '@/lib/constants'
+
 
 function MobileNavLink({ href, children }) {
   return (
@@ -82,10 +84,12 @@ function MobileNavigation() {
             <MobileNavLink href="/#try">Try Now</MobileNavLink>
             <MobileNavLink href="/newsroom">Newsrooom</MobileNavLink>
             <MobileNavLink href="/contact">Contact</MobileNavLink>
+            {/*
             <hr className="m-2 border-slate-300/40" />
             <MobileNavLink href="/#">Developers</MobileNavLink>
+            */}
             <hr className="m-2 border-slate-300/40" />
-            <Button href="/#" color="blue">
+            <Button href={MEETING_URL} color="blue">
               <span>Book a meeting</span>
             </Button>
           </Popover.Panel>
@@ -113,10 +117,12 @@ export function Header() {
             </div>
           </div>
           <div className="flex items-center gap-x-4 md:gap-x-6">
+            {/*
             <div className="hidden lg:block">
               <NavLink href="/#">Developers</NavLink>
             </div>
-            <Button href="/#" color="blue" className="hidden sm:block">
+            */}
+            <Button href={MEETING_URL} color="blue" className="hidden sm:block">
               <span>Book a meeting</span>
             </Button>
             <div className="-mr-1 lg:hidden">

@@ -28,7 +28,9 @@ export default function Home() {
         <TryNow />
         <Testimonials />
         <CallToAction />
+        {/*
         <Faqs />
+        */}
       </main>
       <Footer />
     </>

@@ -1,0 +1,5 @@
+export const MEETING_URL = 'https://meetings.hubspot.com/willo1/talk-to-snapodds'
+export const CONTACT_EMAIL = 'hello@snapscreen.com'
+export const CONTACT_LINKEDIN = 'https://www.linkedin.com/company/Snapscreen'
+export const CONTACT_TWITTER = 'https://twitter.com/snapscreen_com'
+export const CONTACT_GITHUB = 'https://github.com/snapscreen'

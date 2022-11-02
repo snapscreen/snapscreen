@@ -1,4 +1,10 @@
 import { EmailIcon, LinkedinIcon, TwitterIcon, GithubIcon } from '@/components/Icons'
+import {
+  CONTACT_EMAIL,
+  CONTACT_LINKEDIN,
+  CONTACT_TWITTER,
+  CONTACT_GITHUB
+} from '@/lib/constants'
 
 export function ContactOptions() {
   return (
@@ -10,12 +16,12 @@ export function ContactOptions() {
         </dt>
         <dd>
           <a
-            href="mailto:hello@snapscreen.com"
+            href={"mailto:" + CONTACT_EMAIL}
             className="hover:text-blue-600"
             rel="noreferrer"
             target="_blank"
           >
-            hello@snapscreen.com
+            {CONTACT_EMAIL}
           </a>
         </dd>
       </div>
@@ -26,7 +32,7 @@ export function ContactOptions() {
         </dt>
         <dd>
           <a
-            href="https://www.linkedin.com/company/Snapscreen"
+            href={CONTACT_LINKEDIN}
             className="hover:text-blue-600"
             rel="noreferrer"
             target="_blank"
@@ -42,7 +48,7 @@ export function ContactOptions() {
         </dt>
         <dd>
           <a
-            href="https://twitter.com/snapscreen_com"
+            href={CONTACT_TWITTER}
             className="hover:text-blue-600"
             rel="noreferrer"
             target="_blank"
@@ -58,7 +64,7 @@ export function ContactOptions() {
         </dt>
         <dd>
           <a
-            href="https://github.com/snapscreen"
+            href={CONTACT_GITHUB}
             className="hover:text-blue-600"
             rel="noreferrer"
             target="_blank"

@@ -1,5 +1,6 @@
 import HubspotForm from 'react-hubspot-form'
 import { Loader } from "@/components/Loader";
+import { CONTACT_EMAIL } from '@/lib/constants'
 
 export function ContactForm () {
   return (
@@ -10,10 +11,10 @@ export function ContactForm () {
       <p className="mt-2">
         Your message will be delivered to{' '}
         <a
-          href="mailto:hello@snapscreen.com"
+          href={"mailto:" + CONTACT_EMAIL}
           className="font-medium underline-offset-4 hover:underline"
         >
-          hello@snapscreen.com
+          {CONTACT_EMAIL}
         </a>
       </p>
       <HubspotForm
