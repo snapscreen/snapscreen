@@ -23,7 +23,7 @@ const features = [
     description:
       "Tap the Snap button in our demo app, aim on the playing game and take a snap.",
     image: snapImage,
-    step3: "Create and share your clip.",
+    step3: "Create and share clip.",
     qrcode: "https://nba.snapscreen.com/",
     video: "https://www.youtube.com/embed/Aw3xFO1wdJ4"
   }
@@ -107,9 +107,9 @@ export function TryNow() {
               <Tab.Panels className="-mx-4">
                 {features.map((feature) => (
                   <Tab.Panel key={feature.title} unmount={false}>
-                    <div className="grid grid-cols-1 lg:grid-cols-12 py-8 gap-4 rounded-xl bg-white shadow-xl shadow-blue-900/20">
+                    <div className="lg:divide-x grid grid-cols-1 lg:grid-cols-12 py-8 rounded-xl bg-white shadow-xl shadow-blue-900/20">
                       <div className="col-span-auto lg:col-span-3 text-center flex flex-col">
-                        <div className="flex flex-col justify-center h-52 px-8 py-2">
+                        <div className="flex flex-col justify-center p-8 py-4">
                           <div className="text-5xl font-bold text-slate-200 mb-2">1</div>
                           <div className="font-semibold text-xl">
                             Scan QR code with mobile phone.
@@ -119,12 +119,12 @@ export function TryNow() {
                           value={feature.qrcode}
                           className="m-auto p-2 bg-white"
                         />
-                        <p className="text-sm">
+                        <p className="text-sm mt-4">
                           Choose your favourite demo app.
                         </p>
                       </div>
-                      <div className="col-span-auto lg:col-span-6 text-center flex flex-col">
-                        <div className="flex flex-col justify-center h-52 px-8 py-2">
+                      <div className="lg:px-4 col-span-auto lg:col-span-6 text-center flex flex-col">
+                        <div className="flex flex-col justify-center p-8 py-4">
                           <div className="text-5xl font-bold text-slate-200 mb-2">2</div>
                           <div className="font-bold text-xl max-w-xs mx-auto">
                             Play the demo video. Choose any start-time.
@@ -141,7 +141,7 @@ export function TryNow() {
                         </div>
                       </div>
                       <div className="col-span-auto lg:col-span-3 text-center flex flex-col">
-                        <div className="flex flex-col justify-center h-52 px-8 py-2">
+                        <div className="flex flex-col justify-center p-8 py-4">
                           <div className="text-5xl font-bold text-slate-200 mb-2">3</div>
                           <div className="font-semibold text-xl">
                             {feature.step3}
@@ -154,7 +154,7 @@ export function TryNow() {
                           priority
                           sizes="(min-width: 1024px) 67.8125rem, (min-width: 640px) 100vw, 45rem"
                         />
-                        <p className="text-sm">
+                        <p className="text-sm mt-4">
                           Keep the full video in the viewfinder.
                         </p>
                       </div>
