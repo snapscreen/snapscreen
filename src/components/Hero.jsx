@@ -17,8 +17,8 @@ export function Hero() {
         for live TV and streaming content.
       </h1>
       <p className="mx-auto mt-10 max-w-2xl text-lg lg:text-xl tracking-tight text-slate-700">
-        Most bookkeeping software is accurate, but hard to use. We make the
-        opposite trade-off, and hope you don’t get audited.
+        Snapscreen offers turnkey solutions for sports media,
+        broadcasters and sportsbook operators.
       </p>
       <div className="mt-10 flex flex-col sm:flex-row justify-center gap-6">
         <Modal
