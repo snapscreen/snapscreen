@@ -89,7 +89,7 @@
 }
 
 .hs-form-booleancheckbox-display {
-  @apply flex;
+  @apply flex items-center;
   @apply py-4 mt-2;
 }
 

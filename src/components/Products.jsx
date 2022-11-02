@@ -47,7 +47,7 @@ function Plan({ logo, title, product, description, href, features, featured = fa
         className="mt-8"
         aria-label={`Get started with ${product}`}
       >
-        Contact sales
+        Find more at {href}
       </Button>
     </section>
   )
@@ -76,7 +76,7 @@ export function Products() {
             product="ClipShare"
             title="Making TV socially shareable and monetizable."
             description="Best for Broadcasters and Rights Owners."
-            href="/#"
+            href="https://www.clipshare.com"
             features={[
               'Fan engagement',
               'Enhancing Fan Experience',
@@ -90,7 +90,7 @@ export function Products() {
             product="SnapOdds"
             title="Converting Viewers into Bettors with a Snap!"
             description="Perfect for Sports Media and Sportsbook Operators."
-            href="/#"
+            href="https://www.snapodds.com"
             features={[
               'Faster bet discovery',
               'Drive engagement with live games',

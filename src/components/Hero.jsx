@@ -2,6 +2,7 @@ import Image from 'next/future/image'
 
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
+import { Modal } from '@/components/Dialog'
 import logoTechstars from '@/assets/logos/techstars.svg'
 import logoAws from '@/assets/logos/aws.svg'
 
@@ -20,14 +21,29 @@ export function Hero() {
         opposite trade-off, and hope you don’t get audited.
       </p>
       <div className="mt-10 flex flex-col sm:flex-row justify-center gap-6">
-        <Button
-          href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-          variant="outline"
+        <Modal
+          title="How it works"
+          trigger={
+            <Button
+              variant="outline"
+            >
+              <span className="text-lg font-medium mx-4">See how it works</span>
+            </Button>
+          }
         >
-          <span className="text-lg font-medium mx-4">See how it works</span>
-        </Button>
+          <div className="w-full aspect-video">
+            <iframe
+              src="https://player.vimeo.com/video/682945888?h=348e48fdad&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479autoplay=1&loop=1&autopause=0"
+              frameBorder="0"
+              allow="autoplay; fullscreen; picture-in-picture"
+              title="SnapOdds-demo-game.mp4"
+              allowFullScreen
+              className="w-full h-full"
+            />
+          </div>
+        </Modal>
         <Button
-          href="/try"
+          href="/#try"
           variant="solid"
         >
           <span className="text-lg mx-4">Try now</span>

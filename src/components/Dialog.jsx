@@ -2,7 +2,7 @@ import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { CloseIcon } from '@/components/Icons'
 
-export function Modal({ trigger, children }) {
+export function Modal({ trigger, children, title }) {
   let [isOpen, setIsOpen] = useState(false)
 
   function closeModal() {
@@ -41,8 +41,9 @@ export function Modal({ trigger, children }) {
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
-              <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pt-5 pb-4 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-xl sm:p-6">
-                <div className="absolute top-0 right-0 hidden pt-4 pr-4 sm:block">
+              <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pt-5 pb-4 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-3xl sm:p-6">
+                <Dialog.Title className="font-semibold">{title}</Dialog.Title>
+                <div className="absolute top-0 right-0 pt-4 pr-4">
                   <button
                     type="button"
                     className="rounded bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
@@ -52,10 +53,8 @@ export function Modal({ trigger, children }) {
                     <CloseIcon />
                   </button>
                 </div>
-                <div className="sm:flex sm:items-start">
-                  <div className="mt-4 text-center sm:ml-4 sm:text-left">
-                    {children}
-                  </div>
+                <div className="mt-8">
+                  {children}
                 </div>
               </Dialog.Panel>
             </Transition.Child>

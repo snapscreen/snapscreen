@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { getAllPressCoverage, getAllPressArticles } from '../lib/api'
 import { Container } from '@/components/Container'
+import { ContactOptions } from '@/pages/Contact'
 import { CallToAction } from '@/components/CallToAction'
 import { Date } from '@/components/Date'
 import { Modal } from '@/components/Dialog'
@@ -64,36 +65,7 @@ export default function Newsroom({ allCoverage, allArticles }) {
                 <h2 className="font-display text-3xl tracking-tight sm:text-4xl">
                   Get in touch
                 </h2>
-                <dl className="my-4 space-y-2 text-lg lg:text-xl tracking-tight text-slate-700">
-                  <div className="flex gap-2 items-center">
-                    <dt>
-                      <EmailIcon />
-                      <span className="sr-only">Email</span>
-                    </dt>
-                    <dd>hello@snapscreen.com</dd>
-                  </div>
-                  <div className="flex gap-2 items-center">
-                    <dt>
-                      <LinkedinIcon />
-                      <span className="sr-only">LinkedIn</span>
-                    </dt>
-                    <dd>company/Snapscreen</dd>
-                  </div>
-                  <div className="flex gap-2 items-center">
-                    <dt>
-                      <TwitterIcon />
-                      <span className="sr-only">Twitter</span>
-                    </dt>
-                    <dd>@Snapscreen_com</dd>
-                  </div>
-                  <div className="flex gap-2 items-center">
-                    <dt>
-                      <GithubIcon />
-                      <span className="sr-only">Github</span>
-                    </dt>
-                    <dd>snapscreen</dd>
-                  </div>
-                </dl>
+                <ContactOptions />
               </div>
             </div>
           </Container>
@@ -116,12 +88,13 @@ export default function Newsroom({ allCoverage, allArticles }) {
               {allArticles && allArticles.map((post, id) => (
                 <li key={id} className="">
                   <Modal
+                    title="Press Release"
                     trigger={
                       <>
-                      <div className="font-display text-2xl font-bold leading-snug mt-4 mb-2 underline-offset-8 decoration-1 transition group-hover:underline">
-                        {post.title}
-                      </div>
-                      <Date dateString={post.publishDate} />
+                        <div className="font-display text-2xl font-bold leading-snug mt-4 mb-2 underline-offset-8 decoration-1 transition group-hover:underline">
+                          {post.title}
+                        </div>
+                        <Date dateString={post.publishDate} />
                       </>
                     }>
                     <div className="font-display text-2xl font-bold leading-snug mt-4 mb-2">
@@ -146,6 +119,8 @@ export default function Newsroom({ allCoverage, allArticles }) {
                 <li key={id} className="">
                   <a
                     href={post.link}
+                    target="_blank"
+                    ref="noopener noreferrer"
                     className="flex flex-col md:flex-row gap-4 bg-white shadow p-8 rounded-lg transition hover:shadow-xl"
                   >
                     <div className="block">
