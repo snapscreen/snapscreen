@@ -13,19 +13,24 @@ const features = [
     title: 'SnapOdds',
     description:
       "Use your mobile to open our demo app in a mobile webbrowser, or download our app for iOS or Android.",
-    image: snapImage
+    image: snapImage,
+    step3: "See odds and bet.",
+    qrcode: "https://snapodds.onelink.me/rx4N/de77d92a",
+    video: "https://player.vimeo.com/video/682935258?h=96805b468f&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
   },
   {
     title: 'ClipShare',
     description:
       "Tap the Snap button in our demo app, aim on the playing game and take a snap.",
-    image: snapImage
+    image: snapImage,
+    step3: "Create and share your clip.",
+    qrcode: "https://nba.snapscreen.com/",
+    video: "https://www.youtube.com/embed/Aw3xFO1wdJ4"
   }
 ]
 
 export function TryNow() {
 
-  const url = "https://snapodds.onelink.me/rx4N/de77d92a";
 
   let [tabOrientation, setTabOrientation] = useState('horizontal')
 
@@ -104,13 +109,14 @@ export function TryNow() {
                   <Tab.Panel key={feature.title} unmount={false}>
                     <div className="grid grid-cols-1 lg:grid-cols-12 py-8 gap-4 rounded-xl bg-white shadow-xl shadow-blue-900/20">
                       <div className="col-span-auto lg:col-span-3 text-center flex flex-col">
-                        <div className="flex flex-col justify-center h-24 px-8 py-2">
+                        <div className="flex flex-col justify-center h-52 px-8 py-2">
+                          <div className="text-5xl font-bold text-slate-200 mb-2">1</div>
                           <div className="font-semibold text-xl">
                             Scan QR code with mobile phone.
                           </div>
                         </div>
                         <QRCodeSVG
-                          value="/getDemoApp"
+                          value={feature.qrcode}
                           className="m-auto p-2 bg-white"
                         />
                         <p className="text-sm">
@@ -118,26 +124,27 @@ export function TryNow() {
                         </p>
                       </div>
                       <div className="col-span-auto lg:col-span-6 text-center flex flex-col">
-                        <div className="flex flex-col justify-center h-24 px-8 py-2">
+                        <div className="flex flex-col justify-center h-52 px-8 py-2">
+                          <div className="text-5xl font-bold text-slate-200 mb-2">2</div>
                           <div className="font-bold text-xl max-w-xs mx-auto">
                             Play the demo video. Choose any start-time.
                           </div>
                         </div>
                         <div className="w-full aspect-video">
                           <iframe
-                            src="https://player.vimeo.com/video/682935258?h=96805b468f&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                            src={feature.video}
                             frameBorder="0"
                             allow="autoplay; fullscreen; picture-in-picture"
-                            title="SnapOdds-demo-game.mp4"
                             allowFullScreen
                             className="w-full h-full"
                           />
                         </div>
                       </div>
                       <div className="col-span-auto lg:col-span-3 text-center flex flex-col">
-                        <div className="flex flex-col justify-center h-24 px-8 py-2">
+                        <div className="flex flex-col justify-center h-52 px-8 py-2">
+                          <div className="text-5xl font-bold text-slate-200 mb-2">3</div>
                           <div className="font-semibold text-xl">
-                            Snap video with mobile phone.
+                            {feature.step3}
                           </div>
                         </div>
                         <Image
