@@ -76,7 +76,7 @@ export function Products() {
             product="ClipShare"
             title="Making TV socially shareable and monetizable."
             description="Best for Broadcasters and Rights Owners."
-            href="https://www.clipshare.com"
+            href="https://www.clipshare.tv"
             features={[
               'Fan engagement',
               'Enhancing Fan Experience',
