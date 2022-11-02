@@ -88,7 +88,7 @@ export default function Newsroom({ allCoverage, allArticles }) {
               {allArticles && allArticles.map((post, id) => (
                 <li key={id} className="">
                   <Modal
-                    title="Press Release"
+                    title={<Date dateString={post.publishDate} />}
                     trigger={
                       <>
                         <div className="font-display text-2xl font-bold leading-snug mt-4 mb-2 underline-offset-8 decoration-1 transition group-hover:underline">
@@ -120,7 +120,7 @@ export default function Newsroom({ allCoverage, allArticles }) {
                   <a
                     href={post.link}
                     target="_blank"
-                    ref="noopener noreferrer"
+                    rel="noreferrer"
                     className="flex flex-col md:flex-row gap-4 bg-white shadow p-8 rounded-lg transition hover:shadow-xl"
                   >
                     <div className="block">
