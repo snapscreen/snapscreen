@@ -24,11 +24,9 @@ export function Hero() {
         <Modal
           title="How it works"
           trigger={
-            <Button
-              variant="outline"
-            >
-              <span className="text-lg font-medium mx-4">See how it works</span>
-            </Button>
+            <div className="group inline-flex w-full ring-1 items-center justify-center rounded-full py-2 px-8 focus:outline-none ring-slate-200 text-slate-700 hover:text-slate-900 hover:ring-slate-300 active:bg-slate-100 active:text-slate-600 focus-visible:outline-blue-600 focus-visible:ring-slate-300">
+              See how it works
+            </div>
           }
         >
           <div className="w-full aspect-video">
