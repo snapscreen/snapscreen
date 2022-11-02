@@ -7,7 +7,7 @@ import { Header } from '@/components/Header'
 import { Hero } from '@/components/Hero'
 import { Products } from '@/components/Products'
 import { Solutions } from '@/components/Solutions'
-import { Industries } from '@/components/Industries'
+import { TryNow } from '@/components/TryNow'
 import { Testimonials } from '@/components/Testimonials'
 
 export default function Home() {
@@ -25,7 +25,7 @@ export default function Home() {
         <Hero />
         <Products />
         <Solutions />
-        <Industries />
+        <TryNow />
         <Testimonials />
         <CallToAction />
         <Faqs />

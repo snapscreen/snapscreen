@@ -79,8 +79,9 @@ function MobileNavigation() {
           >
             <MobileNavLink href="/#products">Products</MobileNavLink>
             <MobileNavLink href="/#solutions">Solutions</MobileNavLink>
-            <MobileNavLink href="/#industries">Industries</MobileNavLink>
+            <MobileNavLink href="/#try">Try Now</MobileNavLink>
             <MobileNavLink href="/newsroom">Newsrooom</MobileNavLink>
+            <MobileNavLink href="/contact">Contact</MobileNavLink>
             <hr className="m-2 border-slate-300/40" />
             <MobileNavLink href="/#">Developers</MobileNavLink>
             <hr className="m-2 border-slate-300/40" />
@@ -106,8 +107,9 @@ export function Header() {
             <div className="hidden lg:flex md:gap-x-4">
               <NavLink href="/#products">Products</NavLink>
               <NavLink href="/#solutions">Solutions</NavLink>
-              <NavLink href="/#industries">Industries</NavLink>
+              <NavLink href="/#try">Try Now</NavLink>
               <NavLink href="/newsroom">Newsroom</NavLink>
+              <NavLink href="/contact">Contact</NavLink>
             </div>
           </div>
           <div className="flex items-center gap-x-4 md:gap-x-6">

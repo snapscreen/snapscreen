@@ -10,7 +10,7 @@ import screenshotProfitLoss from '@/assets/screenshots/profit-loss.png'
 
 const features = [
   {
-    name: 'Media',
+    name: 'Seamless integration',
     summary: 'With a photo of the TV screen, Snapscreen takes you to that exact moment in the broadcast/stream.',
     description:
       'Our fingerprint technology is frictionless and 100% accurate. It works for streaming and live television. It can be implemented into websites and native apps.',
@@ -33,7 +33,7 @@ const features = [
     },
   },
   {
-    name: 'Companion',
+    name: 'Companion app',
     summary:
       'Display odds with just a snap of the live TV screen.',
     description:
@@ -61,7 +61,7 @@ const features = [
     },
   },
   {
-    name: 'Social',
+    name: 'Social fan engagement',
     summary:
       'Organize all of your contacts, service providers, and invoices in one place.',
     description:

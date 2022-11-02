@@ -1,11 +1,14 @@
+import { useState } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import { getAllPressCoverage, getAllPressArticles } from '../lib/api'
 import { Container } from '@/components/Container'
 import { CallToAction } from '@/components/CallToAction'
 import { Date } from '@/components/Date'
+import { Modal } from '@/components/Dialog'
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
+import { EmailIcon, LinkedinIcon, TwitterIcon, GithubIcon } from '@/components/Icons'
 import markdownStyles from '@/components/markdown-styles.module.css'
 
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
@@ -30,14 +33,13 @@ const RichText = ({ document }) => (
 )
 
 export default function Newsroom({ allCoverage, allArticles }) {
-
   return (
     <>
       <Head>
-        <title>Snapscreen - intelligent video recognition live TV and streaming.</title>
+        <title>Snapscreen Newsroom - Press Releases and News</title>
         <meta
           name="description"
-          content="Snapscreen detects TV or streaming video content instantly with just a photo of the television screen."
+          content="Based in New York with offices in Austria and Australia, Snapscreen is a technology company focused on the use of mobile devices and image recognition for broadcast TV and streaming in the world of sports and entertainment."
         />
       </Head>
       <Header />
@@ -62,21 +64,33 @@ export default function Newsroom({ allCoverage, allArticles }) {
                 <h2 className="font-display text-3xl tracking-tight sm:text-4xl">
                   Get in touch
                 </h2>
-                <dl className="my-4 text-lg lg:text-xl tracking-tight text-slate-700">
-                  <div className="flex gap-2">
-                    <dt>Email:</dt>
+                <dl className="my-4 space-y-2 text-lg lg:text-xl tracking-tight text-slate-700">
+                  <div className="flex gap-2 items-center">
+                    <dt>
+                      <EmailIcon />
+                      <span className="sr-only">Email</span>
+                    </dt>
                     <dd>hello@snapscreen.com</dd>
                   </div>
-                  <div className="flex gap-2">
-                    <dt>LinkedIn:</dt>
-                    <dd>@Snapscreen</dd>
+                  <div className="flex gap-2 items-center">
+                    <dt>
+                      <LinkedinIcon />
+                      <span className="sr-only">LinkedIn</span>
+                    </dt>
+                    <dd>company/Snapscreen</dd>
                   </div>
-                  <div className="flex gap-2">
-                    <dt>Twitter:</dt>
+                  <div className="flex gap-2 items-center">
+                    <dt>
+                      <TwitterIcon />
+                      <span className="sr-only">Twitter</span>
+                    </dt>
                     <dd>@Snapscreen_com</dd>
                   </div>
-                  <div className="flex gap-2">
-                    <dt>Github:</dt>
+                  <div className="flex gap-2 items-center">
+                    <dt>
+                      <GithubIcon />
+                      <span className="sr-only">Github</span>
+                    </dt>
                     <dd>snapscreen</dd>
                   </div>
                 </dl>
@@ -101,15 +115,22 @@ export default function Newsroom({ allCoverage, allArticles }) {
             <ol className="mt-16 grid md:grid-cols-2 gap-8">
               {allArticles && allArticles.map((post, id) => (
                 <li key={id} className="">
-                  <div className="font-display text-2xl font-bold leading-snug mt-4 mb-2">
-                    {post.title}
-                  </div>
-                  <Date dateString={post.publishDate} />
-                  {/*
-                  <div className={markdownStyles['markdown']}>
-                    <RichText document={post.longText.json} />
-                  </div>
-                  */}
+                  <Modal
+                    trigger={
+                      <>
+                      <div className="font-display text-2xl font-bold leading-snug mt-4 mb-2 underline-offset-8 decoration-1 transition group-hover:underline">
+                        {post.title}
+                      </div>
+                      <Date dateString={post.publishDate} />
+                      </>
+                    }>
+                    <div className="font-display text-2xl font-bold leading-snug mt-4 mb-2">
+                      {post.title}
+                    </div>
+                    <div className={markdownStyles['markdown']}>
+                      <RichText document={post.longText.json} />
+                    </div>
+                  </Modal>
                 </li>
               ))}
             </ol>
@@ -125,7 +146,7 @@ export default function Newsroom({ allCoverage, allArticles }) {
                 <li key={id} className="">
                   <a
                     href={post.link}
-                    className="flex flex-col md:flex-row gap-4 bg-white shadow p-8 rounded-lg"
+                    className="flex flex-col md:flex-row gap-4 bg-white shadow p-8 rounded-lg transition hover:shadow-xl"
                   >
                     <div className="block">
                       <div className="text-xl leading-snug">

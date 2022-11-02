@@ -13,3 +13,103 @@
 .rhap_horizontal-reverse .rhap_controls-section {
   @apply !m-0;
 }
+
+
+.legal-consent-container {
+  @apply text-xs font-normal;
+}
+
+.input {
+  @apply text-lg;
+}
+
+.hs_submit {
+  @apply mt-4;
+}
+
+.hs-button {
+  @apply appearance-none;
+  @apply bg-slate-900 text-white hover:bg-slate-700 hover:text-slate-100 active:bg-slate-800 active:text-slate-300 focus-visible:outline-slate-900;
+  @apply py-3 px-6;
+  @apply text-lg font-semibold;
+  @apply w-full rounded-full;
+  @apply cursor-pointer;
+}
+
+.hs-input {
+  @apply mt-0 mb-1;
+  @apply block;
+  @apply w-full;
+  @apply px-3 py-2;
+  @apply border-0 border-b;
+  @apply rounded;
+  @apply bg-white;
+  @apply text-black;
+}
+
+.hs-input input {
+  @apply appearance-none;
+  @apply rounded-none;
+}
+
+.hs-form-field > label {
+  @apply block;
+  @apply font-semibold text-sm;
+  @apply mt-4;
+}
+
+.hs-error-msg {
+  @apply block text-sm;
+  @apply !text-red-800;
+}
+
+.hs-error-msgs > * {
+  @apply bg-red-100;
+  @apply text-red-800;
+  @apply p-2;
+}
+
+.hs_error_rollup {
+  @apply mt-4;
+  @apply font-semibold;
+}
+
+.hs_error_rollup li {
+  @apply !p-8;
+}
+
+.submitted-message {
+  @apply text-center;
+  @apply text-2xl;
+  @apply font-semibold;
+}
+
+.inputs-list {
+  @apply list-none;
+}
+
+.hs-form-booleancheckbox-display {
+  @apply flex;
+  @apply py-4 mt-2;
+}
+
+.hs-form [type='checkbox'], .hs-form [type='radio'] {
+  @apply w-6 h-6;
+  @apply min-w-[1.5rem];
+  @apply appearance-none;
+  @apply inline-flex;
+  @apply p-0;
+  @apply m-0;
+}
+
+.hs-form [type='checkbox']:checked, .hs-form [type='radio']:checked {
+  border-color: transparent;
+  background-color: currentColor;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hs-form [type='checkbox']:checked {
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+}

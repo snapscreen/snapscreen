@@ -14,26 +14,26 @@ import phoneMock from '@/assets/screenshots/phone.svg'
 
 const features = [
   {
-    title: 'Sportsbook Operators',
+    title: 'Open demo app',
     description:
-      "SnapOdds technology helps sports media and sportsbook operators to see more viewers quickly converting into bettors in live games.",
+      "Use your mobile to open our demo app in a mobile webbrowser, or download our app for iOS or Android.",
     image: screenshotPayroll,
   },
   {
-    title: 'Sports Media Broadcaster',
+    title: 'Snap the demo video',
     description:
-      "All of your receipts organized into one place, as long as you don't mind typing in the data by hand.",
-    image: screenshotExpenses,
-  },
-  {
-    title: 'Rights Owner and Leagues',
-    description:
-      "ClipShare is enhancing Fan Experience, engages your fans and drives revenue.",
+      "Tap the Snap button in our demo app, aim on the playing game and take a snap.",
     image: screenshotVatReturns,
   },
+  {
+    title: 'Play the video and snap',
+    description:
+      "SnapOdds helps to increase the affiliate revenue earned from their website or app visitors.",
+    image: screenshotExpenses,
+  }
 ]
 
-export function Industries() {
+export function TryNow() {
   let [tabOrientation, setTabOrientation] = useState('horizontal')
 
   useEffect(() => {
@@ -53,7 +53,7 @@ export function Industries() {
 
   return (
     <section
-      id="industries"
+      id="try"
       aria-label="Features for running your books"
       className="relative overflow-hidden bg-blue-600 pt-20 pb-28 sm:py-32"
     >
@@ -68,7 +68,7 @@ export function Industries() {
       <Container className="relative">
         <div className="max-w-2xl md:mx-auto md:text-center xl:max-w-none">
           <h2 className="font-display text-3xl tracking-tight text-white sm:text-4xl md:text-5xl">
-            Who are our customers?
+            Try and experience yourself!
           </h2>
           <p className="mt-6 text-lg tracking-tight text-blue-100">
             Snapscreen’s innovative video recognition technology
