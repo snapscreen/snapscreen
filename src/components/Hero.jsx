@@ -24,7 +24,7 @@ export function Hero() {
         <Modal
           title="How it works"
           trigger={
-            <div className="group inline-flex w-full ring-1 items-center justify-center rounded-full py-2 px-8 focus:outline-none ring-slate-200 text-slate-700 hover:text-slate-900 hover:ring-slate-300 active:bg-slate-100 active:text-slate-600 focus-visible:outline-blue-600 focus-visible:ring-slate-300">
+            <div className="group inline-flex w-full ring-2 items-center justify-center rounded-full py-2 px-8 focus:outline-none ring-slate-200 text-slate-700 hover:text-slate-900 hover:ring-slate-300 active:bg-slate-100 active:text-slate-600 focus-visible:outline-blue-600 focus-visible:ring-slate-300">
               See how it works
             </div>
           }

@@ -4,9 +4,9 @@ import { Tab } from '@headlessui/react'
 import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
-import screenshotContacts from '@/assets/screenshots/contacts.png'
-import screenshotInventory from '@/assets/screenshots/inventory.png'
-import screenshotProfitLoss from '@/assets/screenshots/profit-loss.png'
+import solution3 from '@/assets/screenshots/solution-3.jpg'
+import solution2 from '@/assets/screenshots/solution-2.jpg'
+import solution1 from '@/assets/screenshots/solution-1.jpg'
 
 const features = [
   {
@@ -14,7 +14,7 @@ const features = [
     summary: 'With a photo of the TV screen, Snapscreen takes you to that exact moment in the broadcast/stream.',
     description:
       'Our fingerprint technology is frictionless and 100% accurate. It works for streaming and live television. It can be implemented into websites and native apps.',
-    image: screenshotProfitLoss,
+    image: solution1,
     icon: function ReportingIcon() {
       let id = useId()
       return (
@@ -38,7 +38,7 @@ const features = [
       'Display odds with just a snap of the live TV screen.',
     description:
       'Betters can find live games in real time which boosts revenue streams and ROI for sports media and for sports operators.',
-    image: screenshotInventory,
+    image: solution2,
     icon: function InventoryIcon() {
       return (
         <>
@@ -66,7 +66,7 @@ const features = [
       'Organize all of your contacts, service providers, and invoices in one place.',
     description:
       'This also isn’t actually a feature, it’s just some friendly advice. We definitely recommend that you do this, you’ll feel really organized and professional.',
-    image: screenshotContacts,
+    image: solution3,
     icon: function ContactsIcon() {
       return (
         <>
