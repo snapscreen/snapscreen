@@ -10,8 +10,8 @@ import solution1 from '@/assets/screenshots/solution-1.jpg'
 
 const features = [
   {
-    name: 'Seamless integration',
-    summary: 'With a photo of the TV screen, Snapscreen takes you to that exact moment in the broadcast/stream.',
+    name: 'Core service',
+    summary: 'Intelligent image recognition for live TV or streaming.',
     description:
       'Our fingerprint technology is frictionless and 100% accurate. It works for streaming and live television. It can be implemented into websites and native apps.',
     image: solution1,
@@ -33,11 +33,11 @@ const features = [
     },
   },
   {
-    name: 'Companion app',
+    name: 'SKD integration or companion',
     summary:
-      'Display odds with just a snap of the live TV screen.',
+      'Fast time to market with SDK integration or ready companion app.',
     description:
-      'Betters can find live games in real time which boosts revenue streams and ROI for sports media and for sports operators.',
+      'We offer a component (SDK) that gets integrated into media apps and websites and turn-key white-label solutions if no integration is desired or for faster time to market.',
     image: solution2,
     icon: function InventoryIcon() {
       return (
@@ -61,11 +61,11 @@ const features = [
     },
   },
   {
-    name: 'Social fan engagement',
+    name: 'Social engagement and faster bet discovery',
     summary:
-      'Organize all of your contacts, service providers, and invoices in one place.',
+      'Drive engagement with live games and enhance fan experience.',
     description:
-      'This also isn’t actually a feature, it’s just some friendly advice. We definitely recommend that you do this, you’ll feel really organized and professional.',
+      'With great ease of use, Snapscreen is a true product differentiator for any sports media or sportsbook operators website/app.',
     image: solution3,
     icon: function ContactsIcon() {
       return (
