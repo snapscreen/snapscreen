@@ -5,9 +5,9 @@ import { Container } from '@/components/Container'
 
 function Plan({ logo, title, product, description, href, features, featured = false }) {
   return (
-    <section
+    <a href={href}
       className={clsx(
-        'flex flex-col rounded-3xl',
+        'flex flex-col rounded-3xl hover:bg-white/10 px-8',
         featured ? 'order-first bg-blue-600 py-8 lg:order-none' : 'lg:py-8'
       )}
     >
@@ -40,6 +40,7 @@ function Plan({ logo, title, product, description, href, features, featured = fa
           </li>
         ))}
       </ul>
+      {/*
       <Button
         href={href}
         variant={featured ? 'solid' : 'outline'}
@@ -49,7 +50,8 @@ function Plan({ logo, title, product, description, href, features, featured = fa
       >
         Find more at {href}
       </Button>
-    </section>
+      */}
+    </a>
   )
 }
 

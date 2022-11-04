@@ -108,6 +108,7 @@ export function Header() {
             <Link href="/" aria-label="Home">
               <Logo className="h-6 w-auto mt-1" />
             </Link>
+            {/*
             <div className="hidden lg:flex md:gap-x-4">
               <NavLink href="/#products">Products</NavLink>
               <NavLink href="/#solutions">Solutions</NavLink>
@@ -115,6 +116,7 @@ export function Header() {
               <NavLink href="/newsroom">Newsroom</NavLink>
               <NavLink href="/contact">Contact</NavLink>
             </div>
+            */}
           </div>
           <div className="flex items-center gap-x-4 md:gap-x-6">
             {/*
@@ -125,9 +127,11 @@ export function Header() {
             <Button href={MEETING_URL} color="blue" className="hidden sm:block">
               <span>Book a meeting</span>
             </Button>
+            {/*
             <div className="-mr-1 lg:hidden">
               <MobileNavigation />
             </div>
+            */}
           </div>
         </nav>
       </Container>

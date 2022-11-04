@@ -11,6 +11,7 @@ export function Footer() {
       <Container>
         <div className="py-16">
           <Logo className="mx-auto h-8 w-auto" />
+          {/*
           <nav className="mt-10 text-sm" aria-label="quick links">
             <div className="-my-1 flex flex-wrap justify-center gap-x-4">
               <NavLink href="/">Home</NavLink>
@@ -20,6 +21,7 @@ export function Footer() {
               <NavLink href="/terms">Terms of Use</NavLink>
             </div>
           </nav>
+          */}
         </div>
         <div className="flex flex-col items-center border-t border-slate-400/10 py-10 sm:flex-row-reverse sm:justify-between">
           <div className="flex gap-x-6">

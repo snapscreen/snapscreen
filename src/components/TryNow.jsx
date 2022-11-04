@@ -10,7 +10,7 @@ import snapImage from '@/assets/screenshots/snapImage.png'
 
 const features = [
   {
-    title: 'SnapOdds',
+    title: 'Try SnapOdds',
     description:
       "Use your mobile to open our demo app in a mobile webbrowser, or download our app for iOS or Android.",
     image: snapImage,
@@ -19,7 +19,7 @@ const features = [
     video: "https://player.vimeo.com/video/682935258?h=96805b468f&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
   },
   {
-    title: 'ClipShare',
+    title: 'Try ClipShare',
     description:
       "Tap the Snap button in our demo app, aim on the playing game and take a snap.",
     image: snapImage,
@@ -52,7 +52,7 @@ export function TryNow() {
   return (
     <section
       id="try"
-      aria-label="Features for running your books"
+      aria-label="Try and experience yourself"
       className="relative overflow-hidden bg-blue-600 pt-20 pb-28 sm:py-32"
     >
       <Image
@@ -104,7 +104,7 @@ export function TryNow() {
                   ))}
                 </Tab.List>
               </div>
-              <Tab.Panels className="-mx-4">
+              <Tab.Panels className="-mx-6 lg:mx-auto">
                 {features.map((feature) => (
                   <Tab.Panel key={feature.title} unmount={false}>
                     <div className="lg:divide-x grid grid-cols-1 lg:grid-cols-12 py-8 rounded-xl bg-white shadow-xl shadow-blue-900/20">

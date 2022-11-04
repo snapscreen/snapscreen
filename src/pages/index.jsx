@@ -22,17 +22,11 @@ export default function Home() {
       </Head>
       <Header />
       <main className="pt-24">
-        <Hero />
         <Products />
-        <Solutions />
-        <TryNow />
-        <Testimonials />
-        <CallToAction />
-        {/*
-        <Faqs />
-        */}
       </main>
+      {/*
       <Footer />
+      */}
     </>
   )
 }
