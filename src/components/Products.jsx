@@ -7,8 +7,8 @@ function Plan({ logo, title, product, description, href, features, featured = fa
   return (
     <a href={href}
       className={clsx(
-        'flex flex-col rounded-3xl hover:bg-white/10 px-8',
-        featured ? 'order-first bg-blue-600 py-8 lg:order-none' : 'lg:py-8'
+        'flex flex-col rounded-3xl hover:bg-white/10 p-8',
+        featured ? 'order-first bg-blue-600 py-8 lg:order-none' : ''
       )}
     >
       <div className="w-1/2 mb-4 text-white">
@@ -40,7 +40,6 @@ function Plan({ logo, title, product, description, href, features, featured = fa
           </li>
         ))}
       </ul>
-      {/*
       <Button
         href={href}
         variant={featured ? 'solid' : 'outline'}
@@ -48,9 +47,8 @@ function Plan({ logo, title, product, description, href, features, featured = fa
         className="mt-8"
         aria-label={`Get started with ${product}`}
       >
-        Find more at {href}
+        Find out more
       </Button>
-      */}
     </a>
   )
 }
