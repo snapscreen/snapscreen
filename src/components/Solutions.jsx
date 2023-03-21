@@ -1,5 +1,5 @@
 import { useId } from 'react'
-import Image from 'next/future/image'
+import Image from 'next/image'
 import { Tab } from '@headlessui/react'
 import clsx from 'clsx'
 
