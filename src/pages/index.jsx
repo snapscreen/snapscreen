@@ -22,6 +22,10 @@ export default function Home() {
       </Head>
       <Header />
       <main className="pt-24">
+        <h1 className="text-center py-32 text-6xl font-semibold">
+          Seamless Vision, Infinite Screen.
+          Where Your Smartphone Meets TV Reality!
+        </h1>
         <Products />
       </main>
       {/*
